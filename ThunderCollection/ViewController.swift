@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: CollectionViewController {
+    
+    var models = [Model(name: "1", age: 4, image: #imageLiteral(resourceName: "heart")), Model(name: "Soemthing", age: 10, image: #imageLiteral(resourceName: "heart"))]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        data = [CollectionSection(items: models)]
+        
     }
 }
 

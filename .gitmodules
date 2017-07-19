@@ -1,0 +1,3 @@
+[submodule "ThunderTable"]
+	path = ThunderTable
+	url = https://github.com/3sidedcube/iOS-ThunderTable.git

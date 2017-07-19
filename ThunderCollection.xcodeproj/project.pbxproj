@@ -12,7 +12,30 @@
 		FFBEEA561F1F8E1C00C44DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFBEEA541F1F8E1C00C44DF4 /* Main.storyboard */; };
 		FFBEEA581F1F8E1C00C44DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFBEEA571F1F8E1C00C44DF4 /* Assets.xcassets */; };
 		FFBEEA5B1F1F8E1C00C44DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFBEEA591F1F8E1C00C44DF4 /* LaunchScreen.storyboard */; };
+		FFBEEA6C1F1F906E00C44DF4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEA6B1F1F906E00C44DF4 /* CollectionViewController.swift */; };
+		FFBEEA6E1F1F90CE00C44DF4 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEA6D1F1F90CE00C44DF4 /* CollectionItem.swift */; };
+		FFBEEA701F1F90D800C44DF4 /* CollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEA6F1F1F90D800C44DF4 /* CollectionSection.swift */; };
+		FFBEEA721F1F997200C44DF4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEA711F1F997200C44DF4 /* Model.swift */; };
+		FFBEEA771F1F9DDC00C44DF4 /* ModelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEA751F1F9DDC00C44DF4 /* ModelCollectionViewCell.swift */; };
+		FFBEEA781F1F9DDC00C44DF4 /* ModelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFBEEA761F1F9DDC00C44DF4 /* ModelCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FFBEEA671F1F8FBE00C44DF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFBEEA621F1F8FBE00C44DF4 /* ThunderTable.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B17BAA321D89639100844421;
+			remoteInfo = ThunderTable;
+		};
+		FFBEEA691F1F8FBE00C44DF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFBEEA621F1F8FBE00C44DF4 /* ThunderTable.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B17BAA3B1D89639200844421;
+			remoteInfo = ThunderTableTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FFBEEA4D1F1F8E1C00C44DF4 /* ThunderCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +45,13 @@
 		FFBEEA571F1F8E1C00C44DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFBEEA5A1F1F8E1C00C44DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FFBEEA5C1F1F8E1C00C44DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFBEEA621F1F8FBE00C44DF4 /* ThunderTable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderTable.xcodeproj; path = ThunderTable/ThunderTable.xcodeproj; sourceTree = "<group>"; };
+		FFBEEA6B1F1F906E00C44DF4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		FFBEEA6D1F1F90CE00C44DF4 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		FFBEEA6F1F1F90D800C44DF4 /* CollectionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSection.swift; sourceTree = "<group>"; };
+		FFBEEA711F1F997200C44DF4 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FFBEEA751F1F9DDC00C44DF4 /* ModelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFBEEA761F1F9DDC00C44DF4 /* ModelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModelCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +70,7 @@
 			children = (
 				FFBEEA4F1F1F8E1C00C44DF4 /* ThunderCollection */,
 				FFBEEA4E1F1F8E1C00C44DF4 /* Products */,
+				FFBEEA621F1F8FBE00C44DF4 /* ThunderTable.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +91,23 @@
 				FFBEEA571F1F8E1C00C44DF4 /* Assets.xcassets */,
 				FFBEEA591F1F8E1C00C44DF4 /* LaunchScreen.storyboard */,
 				FFBEEA5C1F1F8E1C00C44DF4 /* Info.plist */,
+				FFBEEA6B1F1F906E00C44DF4 /* CollectionViewController.swift */,
+				FFBEEA6D1F1F90CE00C44DF4 /* CollectionItem.swift */,
+				FFBEEA6F1F1F90D800C44DF4 /* CollectionSection.swift */,
+				FFBEEA711F1F997200C44DF4 /* Model.swift */,
+				FFBEEA751F1F9DDC00C44DF4 /* ModelCollectionViewCell.swift */,
+				FFBEEA761F1F9DDC00C44DF4 /* ModelCollectionViewCell.xib */,
 			);
 			path = ThunderCollection;
+			sourceTree = "<group>";
+		};
+		FFBEEA631F1F8FBE00C44DF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFBEEA681F1F8FBE00C44DF4 /* ThunderTable.framework */,
+				FFBEEA6A1F1F8FBE00C44DF4 /* ThunderTableTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,6 +157,12 @@
 			mainGroup = FFBEEA441F1F8E1C00C44DF4;
 			productRefGroup = FFBEEA4E1F1F8E1C00C44DF4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FFBEEA631F1F8FBE00C44DF4 /* Products */;
+					ProjectRef = FFBEEA621F1F8FBE00C44DF4 /* ThunderTable.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FFBEEA4C1F1F8E1C00C44DF4 /* ThunderCollection */,
@@ -118,11 +170,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		FFBEEA681F1F8FBE00C44DF4 /* ThunderTable.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThunderTable.framework;
+			remoteRef = FFBEEA671F1F8FBE00C44DF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFBEEA6A1F1F8FBE00C44DF4 /* ThunderTableTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ThunderTableTests.xctest;
+			remoteRef = FFBEEA691F1F8FBE00C44DF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		FFBEEA4B1F1F8E1C00C44DF4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBEEA781F1F9DDC00C44DF4 /* ModelCollectionViewCell.xib in Resources */,
 				FFBEEA5B1F1F8E1C00C44DF4 /* LaunchScreen.storyboard in Resources */,
 				FFBEEA581F1F8E1C00C44DF4 /* Assets.xcassets in Resources */,
 				FFBEEA561F1F8E1C00C44DF4 /* Main.storyboard in Resources */,
@@ -136,7 +206,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBEEA701F1F90D800C44DF4 /* CollectionSection.swift in Sources */,
+				FFBEEA6C1F1F906E00C44DF4 /* CollectionViewController.swift in Sources */,
 				FFBEEA531F1F8E1C00C44DF4 /* ViewController.swift in Sources */,
+				FFBEEA721F1F997200C44DF4 /* Model.swift in Sources */,
+				FFBEEA6E1F1F90CE00C44DF4 /* CollectionItem.swift in Sources */,
+				FFBEEA771F1F9DDC00C44DF4 /* ModelCollectionViewCell.swift in Sources */,
 				FFBEEA511F1F8E1C00C44DF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
