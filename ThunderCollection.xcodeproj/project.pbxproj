@@ -17,9 +17,9 @@
 		B124DE211F2F3E1D00A7AD68 /* ThunderCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B124DE241F2F3E1D00A7AD68 /* ThunderCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThunderCollection.h; sourceTree = "<group>"; };
 		B124DE251F2F3E1D00A7AD68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B124DE321F2F3EB900A7AD68 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = ../../../../.Trash/ThunderCollection/CollectionViewController.swift; sourceTree = "<group>"; };
-		B124DE331F2F3EB900A7AD68 /* CollectionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionSection.swift; path = ../../../../.Trash/ThunderCollection/CollectionSection.swift; sourceTree = "<group>"; };
-		B124DE341F2F3EB900A7AD68 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionItem.swift; path = ../../../../.Trash/ThunderCollection/CollectionItem.swift; sourceTree = "<group>"; };
+		B124DE321F2F3EB900A7AD68 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		B124DE331F2F3EB900A7AD68 /* CollectionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSection.swift; sourceTree = "<group>"; };
+		B124DE341F2F3EB900A7AD68 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

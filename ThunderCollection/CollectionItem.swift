@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ selected: Bool, _ indexPath: IndexPath, _ collectionView: UICollectionView) -> (Void)
+public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ selected: Bool, _ indexPath: IndexPath, _ collectionView: UICollectionView?) -> (Void)
 
 public protocol CollectionItemDisplayable {
     
@@ -34,7 +34,12 @@ public protocol CollectionItemDisplayable {
     /// cell class `TableViewCell` so if you wish to have a none Interface Builder
     /// row, then make sure to return false from this, or subclass from UITableViewCell rather than TableViewCell!
     var useNibSuperclass: Bool { get }
-    
+	
+	/// Whether the cell should remain selected when pressed by the user
+	///
+	/// Defaults to false
+	var remainSelected: Bool { get }
+	
     /// A function which will be called in `cellForRow:atIndexPath` delegate
     /// method which can be used to provide custom overrides on your cell from
     /// the item controlling it
@@ -44,6 +49,15 @@ public protocol CollectionItemDisplayable {
     ///   - indexPath: The index path which that cell is at
     ///   - tableViewController: The collection view controller which the cell is in
     func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController)
+	
+	/// A function which allows providing a manual size for a cell not layed
+	/// out using Interface Builder
+	///
+	/// - Parameters:
+	///   - size: The size which the row has available to it
+	///   - tableView: The table view which the row will be displayed in
+	/// - Returns: The height (or nil, to have this ignored) the row should be displayed at
+	func size(constrainedTo size: CGSize, in collectionView: UICollectionView) -> CGSize?
 }
 
 
@@ -56,7 +70,11 @@ extension CollectionItemDisplayable {
     public var prototypeIdentifier: String? {
         return nil
     }
-    
+	
+	public var remainSelected: Bool {
+		return false
+	}
+	
     public var selectionHandler: SelectionHandler? {
         get { return nil }
         set {}
@@ -69,6 +87,10 @@ extension CollectionItemDisplayable {
     public func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController) {
         
     }
+	
+	public func size(constrainedTo size: CGSize, in collectionView: UICollectionView) -> CGSize? {
+		return nil
+	}
 }
 
 
