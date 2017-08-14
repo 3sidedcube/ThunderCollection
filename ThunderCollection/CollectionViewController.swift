@@ -337,9 +337,6 @@ public extension CollectionViewController {
 			sectionSelectionHandler(row, selected, indexPath, collectionView!)
 		}
 		
-		if selected {
-		}
-		
 		// Deselect it if remain selected is false
 		if selected && !row.remainSelected {
 			collectionView?.deselectItem(at: indexPath, animated: true)
