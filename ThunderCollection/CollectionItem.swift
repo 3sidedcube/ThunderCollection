@@ -121,16 +121,16 @@ extension CollectionItemDisplayable {
                     // Find the new class name
                     classString = String(describing: superClass)
                     // Get the new nib name for the classes superClass
-                    if let superNibName = classString.components(separatedBy: ".").last, let _path = bundle.path(forResource: superNibName, ofType: "nib") {
+                    if let superNibName = classString.components(separatedBy: ".").last, let path = bundle.path(forResource: superNibName, ofType: "nib") {
                         // Update nibPath and nibName
-                        nibPath = _path
+                        nibPath = path
                         nibName = superNibName
                     }
                     cellClass = superClass
                 }
             }
             
-            guard let _ = nibPath else { return nil }
+            guard nibPath != nil else { return nil }
             let nib = UINib(nibName: nibName, bundle: bundle)
             return nib
         }

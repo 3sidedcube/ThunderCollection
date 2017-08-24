@@ -35,8 +35,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 			return (collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing
 		}
 		set {
-			if let _value = newValue {
-				(collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing = _value
+			if let newValue = newValue {
+				(collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing = newValue
 			}
 			collectionViewLayout.invalidateLayout()
 		}
@@ -47,8 +47,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 			return (collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing
 		}
 		set {
-			if let _value = newValue {
-				(collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing = _value
+			if let newValue = newValue {
+				(collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing = newValue
 			}
 			collectionViewLayout.invalidateLayout()
 		}
@@ -132,12 +132,12 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 	
 	private var cellConstrainedSize: CGSize {
 		
-		guard let _collectionView = collectionView, let collectionViewFlowLayout = _collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+		guard let collectionView = collectionView, let collectionViewFlowLayout = _collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
 			return CGSize(width: view.bounds.width, height: 10000)
 		}
 
 		// Inset view.bounds by contentInset
-		var insetSize = CGSize(width: view.bounds.width - _collectionView.contentInset.left - _collectionView.contentInset.right, height: view.bounds.height - _collectionView.contentInset.top - _collectionView.contentInset.bottom)
+		var insetSize = CGSize(width: view.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right, height: view.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom)
 		
 		// Inset again by section's insets
 		let edgeInsets = collectionViewFlowLayout.sectionInset
