@@ -132,7 +132,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 	
 	private var cellConstrainedSize: CGSize {
 		
-		guard let collectionView = collectionView, let collectionViewFlowLayout = _collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+		guard let collectionView = collectionView, let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
 			return CGSize(width: view.bounds.width, height: 10000)
 		}
 
