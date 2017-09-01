@@ -78,11 +78,11 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     
     // MARK: - TableView data source
     
-    open override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    override open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return data.count
     }
     
-    open override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if section - 1 > data.count { return 0 }
         
@@ -90,7 +90,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         return section.items.count
     }
     
-    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let item = data[indexPath.section].items[indexPath.item]
         
@@ -116,13 +116,13 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         return cell
     }
 	
-	open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+	override open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if selectable(indexPath) {
 			set(indexPath: indexPath, selected: true)
 		}
 	}
 	
-	open override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+	override open func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 		if selectable(indexPath) {
 			set(indexPath: indexPath, selected: false)
 		}
