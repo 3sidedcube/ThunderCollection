@@ -15,7 +15,7 @@ public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ select
 public protocol CollectionItemDisplayable {
     
     /// The class for the `UICollectionViewCell` subclass for the cell
-    var cellClass: AnyClass? { get }
+    var collectionCellClass: AnyClass? { get }
     
     /// A prototype identifier for a cell which is defined in a storyboard
     /// file, which this item will use
@@ -63,7 +63,7 @@ public protocol CollectionItemDisplayable {
 
 extension CollectionItemDisplayable {
     
-    public var cellClass: AnyClass? {
+    public var collectionCellClass: AnyClass? {
         return nil
     }
     
@@ -101,7 +101,7 @@ extension CollectionItemDisplayable {
         
         get {
             
-            guard var cellClass = cellClass else { return nil }
+            guard var cellClass = collectionCellClass else { return nil }
             
             var classString = String(describing: cellClass)
             guard var nibName = classString.components(separatedBy: ".").last else { return nil }
@@ -140,7 +140,7 @@ extension CollectionItemDisplayable {
         
         if let prototypeIdentifier = prototypeIdentifier {
             return prototypeIdentifier
-        } else if let cellClass = cellClass {
+        } else if let cellClass = collectionCellClass {
             return String(describing: cellClass)
         }
         
