@@ -11,6 +11,7 @@
 		B124DE351F2F3EB900A7AD68 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124DE321F2F3EB900A7AD68 /* CollectionViewController.swift */; };
 		B124DE361F2F3EB900A7AD68 /* CollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124DE331F2F3EB900A7AD68 /* CollectionSection.swift */; };
 		B124DE371F2F3EB900A7AD68 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124DE341F2F3EB900A7AD68 /* CollectionItem.swift */; };
+		B176490D1F6186A20093C848 /* LeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B176490C1F6186A20093C848 /* LeftAlignedLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		B124DE321F2F3EB900A7AD68 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		B124DE331F2F3EB900A7AD68 /* CollectionSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSection.swift; sourceTree = "<group>"; };
 		B124DE341F2F3EB900A7AD68 /* CollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		B176490C1F6186A20093C848 /* LeftAlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		B124DE231F2F3E1D00A7AD68 /* ThunderCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B176490B1F61867A0093C848 /* Layouts */,
 				B124DE341F2F3EB900A7AD68 /* CollectionItem.swift */,
 				B124DE331F2F3EB900A7AD68 /* CollectionSection.swift */,
 				B124DE321F2F3EB900A7AD68 /* CollectionViewController.swift */,
@@ -59,6 +62,14 @@
 				B124DE251F2F3E1D00A7AD68 /* Info.plist */,
 			);
 			path = ThunderCollection;
+			sourceTree = "<group>";
+		};
+		B176490B1F61867A0093C848 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				B176490C1F6186A20093C848 /* LeftAlignedLayout.swift */,
+			);
+			name = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +154,7 @@
 				B124DE351F2F3EB900A7AD68 /* CollectionViewController.swift in Sources */,
 				B124DE361F2F3EB900A7AD68 /* CollectionSection.swift in Sources */,
 				B124DE371F2F3EB900A7AD68 /* CollectionItem.swift in Sources */,
+				B176490D1F6186A20093C848 /* LeftAlignedLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
