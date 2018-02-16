@@ -47,8 +47,8 @@ public protocol CollectionItemDisplayable {
     /// - Parameters:
     ///   - cell: The cell which needs configuring
     ///   - indexPath: The index path which that cell is at
-    ///   - tableViewController: The collection view controller which the cell is in
-    func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController)
+    ///   - collectionViewController: The collection view controller which the cell is in
+    func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in collectionViewController: CollectionViewController)
 	
 	/// A function which allows providing a manual size for a cell not layed
 	/// out using Interface Builder
@@ -84,7 +84,7 @@ extension CollectionItemDisplayable {
         return true
     }
     
-    public func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController) {
+    public func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in collectionViewController: CollectionViewController) {
         
     }
 	
