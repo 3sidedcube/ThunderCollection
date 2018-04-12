@@ -12,21 +12,27 @@ import UIKit
 @objc(TSCCollectionViewController)
 open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    open var data: [CollectionSectionDisplayable] = [] {
-        didSet {
+    private var _data: [CollectionSectionDisplayable] = []
+    
+    open var data: [CollectionSectionDisplayable] {
+        set {
+            _data = newValue
             collectionView?.reloadData()
+        }
+        get {
+            return _data
         }
     }
 	
 	open var columns: Int = 1 {
 		didSet {
-			collectionView?.collectionViewLayout.invalidateLayout()
+            collectionView?.collectionViewLayout.invalidateLayout()
 		}
 	}
 	
 	open var rows: Int = 1 {
 		didSet {
-			collectionView?.collectionViewLayout.invalidateLayout()
+            collectionView?.collectionViewLayout.invalidateLayout()
 		}
 	}
 	
@@ -79,20 +85,20 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     // MARK: - TableView data source
     
     override open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return data.count
+        return _data.count
     }
     
     override open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if section - 1 > data.count { return 0 }
+        if section - 1 > _data.count { return 0 }
         
-        let section = data[section]
+        let section = _data[section]
         return section.items.count
     }
     
     override open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let item = data[indexPath.section].items[indexPath.item]
+        let item = _data[indexPath.section].items[indexPath.item]
         
         let identifier: String = item.identifier ?? "Cell"
         
@@ -162,7 +168,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 	
 	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		
-		let row = data[indexPath.section].items[indexPath.item]
+		let row = _data[indexPath.section].items[indexPath.item]
 		
 		if let size = row.size(constrainedTo: cellConstrainedSize, in: collectionView) {
 			return size
@@ -319,7 +325,7 @@ public extension CollectionViewController {
 	
 	internal func selectable(_ indexPath: IndexPath) -> Bool {
 		
-		let section = data[indexPath.section]
+		let section = _data[indexPath.section]
 		let row = section.items[indexPath.item]
 		
 		return row.selectionHandler != nil || section.selectionHandler != nil || !row.remainSelected
@@ -327,7 +333,7 @@ public extension CollectionViewController {
 	
 	internal func set(indexPath: IndexPath, selected: Bool) {
 		
-		let section = data[indexPath.section]
+		let section = _data[indexPath.section]
 		let row = section.items[indexPath.item]
 		
 		// Row selection overrides section selection
