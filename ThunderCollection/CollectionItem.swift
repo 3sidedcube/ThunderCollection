@@ -22,7 +22,7 @@ public protocol CollectionItemDisplayable {
     var prototypeIdentifier: String? { get }
     
     /// A function which will be called when the item is pressed on in the collection view
-    var selectionHandler: SelectionHandler? { get set }
+    var selectionHandler: SelectionHandler? { get }
     
     /// Whether if no nib was found with the same file name as `cellClass`
     /// (expected behaviour is to name your cell's xib the same file name as the
@@ -150,7 +150,7 @@ extension CollectionItemDisplayable {
 
 public protocol CollectionSectionDisplayable {
     
-    var items: [CollectionItemDisplayable] { get set }
+    var items: [CollectionItemDisplayable] { get }
     
-    var selectionHandler: SelectionHandler? { get set }
+    var selectionHandler: SelectionHandler? { get }
 }
