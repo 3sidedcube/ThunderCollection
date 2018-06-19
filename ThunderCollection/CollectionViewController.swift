@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-@objc(TSCCollectionViewController)
 open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     private var _data: [CollectionSectionDisplayable] = []
@@ -136,29 +135,33 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 	
 	private var dynamicHeightCells: [String: UICollectionViewCell] = [:]
 	
-	private var cellConstrainedSize: CGSize {
-		
-		guard let collectionView = collectionView, let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-			return CGSize(width: view.bounds.width, height: 10000)
-		}
-
-		// Inset view.bounds by contentInset
-		var insetSize = CGSize(width: view.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right, height: view.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom)
-		
-		// Inset again by section's insets
-		let edgeInsets = collectionViewFlowLayout.sectionInset
-		insetSize.width -= (edgeInsets.left + edgeInsets.right)
-		insetSize.height -= (edgeInsets.top + edgeInsets.bottom)
-		
-		// Calculate cell height
-		if collectionViewFlowLayout.scrollDirection == .horizontal {
+    /// The size the cell at a particular indexPath has to fit within.
+    ///
+    /// - Parameter indexPath: The indexPath to return the available size for.
+    /// - Returns: The available room for the cell.
+    open func constrainedSize(forCellAt indexPath: IndexPath) -> CGSize {
+        
+        guard let collectionView = collectionView, let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return CGSize(width: view.bounds.width, height: 10000)
+        }
+        
+        // Inset view.bounds by contentInset
+        var insetSize = CGSize(width: view.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right, height: view.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom)
+        
+        // Inset again by section's insets
+        let edgeInsets = collectionViewFlowLayout.sectionInset
+        insetSize.width -= (edgeInsets.left + edgeInsets.right)
+        insetSize.height -= (edgeInsets.top + edgeInsets.bottom)
+        
+        // Calculate cell height
+        if collectionViewFlowLayout.scrollDirection == .horizontal {
             let availableHeight = insetSize.height - (collectionViewFlowLayout.minimumLineSpacing * CGFloat(rows-1))
-			return CGSize(width: 10000, height: availableHeight/CGFloat(rows))
-		} else {
+            return CGSize(width: 10000, height: availableHeight/CGFloat(rows))
+        } else {
             let availableWidth = insetSize.width - (collectionViewFlowLayout.minimumInteritemSpacing * CGFloat(columns-1))
-			return CGSize(width: availableWidth/CGFloat(columns), height: 10000)
-		}
-	}
+            return CGSize(width: availableWidth/CGFloat(columns), height: 10000)
+        }
+    }
 	
 	private var scrollDirection: UICollectionViewScrollDirection {
 		guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
@@ -168,11 +171,11 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		return flowLayout.scrollDirection
 	}
 	
-	public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+	open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		
 		let row = _data[indexPath.section].items[indexPath.item]
 		
-		if let size = row.size(constrainedTo: cellConstrainedSize, in: collectionView) {
+		if let size = row.size(constrainedTo: constrainedSize(forCellAt: indexPath), in: collectionView) {
 			return size
 		}
 		
@@ -217,6 +220,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		let translates = view.translatesAutoresizingMaskIntoConstraints
 		let mask = view.autoresizingMask
 		view.translatesAutoresizingMaskIntoConstraints = true
+        
+        let cellConstrainedSize = constrainedSize(forCellAt: indexPath)
 		
 		if scrollDirection == .vertical {
 			
