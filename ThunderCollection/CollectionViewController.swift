@@ -139,7 +139,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     ///
     /// - Parameter indexPath: The indexPath to return the available size for.
     /// - Returns: The available room for the cell.
-    open func constrainedSize(forCellAt indexPath: IndexPath) -> CGSize {
+    open func constrainedSizeFor(cellAt indexPath: IndexPath) -> CGSize {
         
         guard let collectionView = collectionView, let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return CGSize(width: view.bounds.width, height: 10000)
@@ -175,7 +175,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		
 		let row = _data[indexPath.section].items[indexPath.item]
 		
-		if let size = row.size(constrainedTo: constrainedSize(forCellAt: indexPath), in: collectionView) {
+		if let size = row.size(constrainedTo: constrainedSizeFor(cellAt: indexPath), in: collectionView) {
 			return size
 		}
 		
@@ -202,7 +202,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 			guard let _cell = cell else { return .zero }
 			
 			configure(cell: _cell, with: row, at: indexPath)
-			return manualCellSize(cell: _cell)
+            return manualCellSizeFor(cell: _cell, at: indexPath)
 		}
 		
 		if cell == nil, let view = nib.instantiate(withOwner: self, options: nil).filter({ $0 as? UICollectionViewCell != nil }).first as? UICollectionViewCell {
@@ -221,7 +221,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		let mask = view.autoresizingMask
 		view.translatesAutoresizingMaskIntoConstraints = true
         
-        let cellConstrainedSize = constrainedSize(forCellAt: indexPath)
+        let cellConstrainedSize = constrainedSizeFor(cellAt: indexPath)
 		
 		if scrollDirection == .vertical {
 			
@@ -266,7 +266,9 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		return size ?? .zero
 	}
 
-	private func manualCellSize(cell: UICollectionViewCell) -> CGSize {
+    private func manualCellSizeFor(cell: UICollectionViewCell, at indexPath: IndexPath) -> CGSize {
+        
+        let cellConstrainedSize = constrainedSizeFor(cellAt: indexPath)
 		
 		cell.frame = CGRect(x: 0, y: 0, width: cellConstrainedSize.width, height: cellConstrainedSize.height)
 		cell.layoutSubviews()
