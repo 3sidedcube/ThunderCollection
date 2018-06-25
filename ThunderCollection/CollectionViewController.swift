@@ -196,7 +196,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 			
 			if cell == nil {
 				
-				if let aClass = row.collectionCellClass {
+				if let aClass = row.collectionCellClass as? UICollectionViewCell.Type {
 					cell = aClass.init(coder: NSCoder())
 				}
 			}
