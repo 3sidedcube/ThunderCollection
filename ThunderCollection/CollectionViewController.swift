@@ -156,12 +156,14 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         // Calculate cell height
         if collectionViewFlowLayout.scrollDirection == .horizontal {
             let availableHeight = insetSize.height - (collectionViewFlowLayout.minimumLineSpacing * CGFloat(rows-1))
-            return CGSize(width: 10000, height: availableHeight/CGFloat(rows))
-        } else {
+            // We floor this, because on odd pixel-height devices it could result in rows not being obeyed
+			return CGSize(width: 10000, height: floor(availableHeight/CGFloat(rows)))
+		} else {
             let availableWidth = insetSize.width - (collectionViewFlowLayout.minimumInteritemSpacing * CGFloat(columns-1))
-            return CGSize(width: availableWidth/CGFloat(columns), height: 10000)
-        }
-    }
+            // We floor this, because on odd pixel-width devices it could result in columns not being obeyed
+			return CGSize(width: floor(availableWidth/CGFloat(columns)), height: 10000)
+		}
+	}
 	
 	private var scrollDirection: UICollectionViewScrollDirection {
 		guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
