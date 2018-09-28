@@ -76,7 +76,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         
         if let nib = item.nib {
             collectionView?.register(nib, forCellWithReuseIdentifier: identifier)
-        } else if let cellClass = item.collectionCellClass {
+        } else if let cellClass = item.cellClass {
             collectionView?.register(cellClass, forCellWithReuseIdentifier: identifier)
         }
     }
@@ -196,7 +196,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 			
 			if cell == nil {
 				
-				if let aClass = row.collectionCellClass as? UICollectionViewCell.Type {
+				if let aClass = row.cellClass {
 					cell = aClass.init(coder: NSCoder())
 				}
 			}

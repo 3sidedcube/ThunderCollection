@@ -15,7 +15,7 @@ public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ select
 public protocol CollectionItemDisplayable {
     
     /// The class for the `UICollectionViewCell` subclass for the cell
-    var collectionCellClass: AnyClass? { get }
+    var cellClass: UICollectionViewCell.Type? { get }
     
     /// A prototype identifier for a cell which is defined in a storyboard
     /// file, which this item will use
@@ -63,7 +63,7 @@ public protocol CollectionItemDisplayable {
 
 extension CollectionItemDisplayable {
     
-    public var collectionCellClass: AnyClass? {
+    public var cellClass: UICollectionViewCell.Type? {
         return nil
     }
     
@@ -101,7 +101,7 @@ extension CollectionItemDisplayable {
         
         get {
             
-            guard var cellClass = collectionCellClass else { return nil }
+            guard var cellClass = cellClass else { return nil }
             
             var classString = String(describing: cellClass)
             guard var nibName = classString.components(separatedBy: ".").last else { return nil }
@@ -114,7 +114,7 @@ extension CollectionItemDisplayable {
                 
                 // Sometimes a cell may have subclassed without providing it's own nib file
                 // In this case always use it's superclass!
-                while nibPath == nil, let superClass = cellClass.superclass(){
+                while nibPath == nil, let superClass = cellClass.superclass() as? UICollectionViewCell.Type {
                     
                     // Make sure we're still looking in the correct bundle
                     bundle = Bundle(for: superClass)
@@ -140,7 +140,7 @@ extension CollectionItemDisplayable {
         
         if let prototypeIdentifier = prototypeIdentifier {
             return prototypeIdentifier
-        } else if let cellClass = collectionCellClass {
+        } else if let cellClass = cellClass {
             return String(describing: cellClass)
         }
         
