@@ -146,7 +146,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         }
         
         // Inset view.bounds by contentInset
-        var insetSize = CGSize(width: view.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right, height: view.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom)
+        var insetSize = CGSize(width: collectionView.bounds.width - collectionView.contentInset.left - collectionView.contentInset.right, height: collectionView.bounds.height - collectionView.contentInset.top - collectionView.contentInset.bottom)
         
         // Inset again by section's insets
         let edgeInsets = collectionViewFlowLayout.sectionInset
