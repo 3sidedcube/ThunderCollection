@@ -165,7 +165,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		}
 	}
 	
-	private var scrollDirection: UICollectionViewScrollDirection {
+    private var scrollDirection: UICollectionView.ScrollDirection {
 		guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
 			return .vertical
 		}
@@ -228,7 +228,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		if scrollDirection == .vertical {
 			
 			let width = NSNumber(value: Float(cellConstrainedSize.width))
-			let temporaryWidthConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(width)]", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: ["width": width], views: ["view": view])
+            let temporaryWidthConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(width)]", options: NSLayoutConstraint.FormatOptions.init(rawValue: 0), metrics: ["width": width], views: ["view": view])
 			view.addConstraints(temporaryWidthConstraint)
 			view.bounds = CGRect(origin: .zero, size: CGSize(width: cellConstrainedSize.width, height: 0))
 			
@@ -246,7 +246,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 		} else {
 			
 			let height = NSNumber(value: Float(cellConstrainedSize.height))
-			let temporaryHeightConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(height)]", options: NSLayoutFormatOptions.init(rawValue: 0), metrics: ["height": height], views: ["view": view])
+            let temporaryHeightConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(height)]", options: NSLayoutConstraint.FormatOptions.init(rawValue: 0), metrics: ["height": height], views: ["view": view])
 			view.addConstraints(temporaryHeightConstraint)
 			view.bounds = CGRect(origin: .zero, size: CGSize(width: cellConstrainedSize.width, height: 0))
 			
@@ -296,7 +296,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 				}
 			}
 			
-			var cellHeight = totalHeight + fabs(lowestYValue) + 8
+            var cellHeight = totalHeight + abs(lowestYValue) + 8
 			
 			cellHeight = ceil(cellHeight);
 			let size = CGSize(width: cellConstrainedSize.width, height: cellHeight)
@@ -323,7 +323,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
 				}
 			}
 			
-			var cellWidth = totalWidth + fabs(lowestXValue) + 8
+            var cellWidth = totalWidth + abs(lowestXValue) + 8
 			
 			cellWidth = ceil(cellWidth);
 			let size = CGSize(width: cellWidth, height: cellConstrainedSize.height)
