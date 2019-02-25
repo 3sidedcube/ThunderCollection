@@ -147,10 +147,3 @@ extension CollectionItemDisplayable {
         return nil
     }
 }
-
-public protocol CollectionSectionDisplayable {
-    
-    var items: [CollectionItemDisplayable] { get }
-    
-    var selectionHandler: SelectionHandler? { get }
-}
