@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 
-public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ selected: Bool, _ indexPath: IndexPath, _ collectionView: UICollectionView) -> (Void)
+public typealias SelectionHandler = (_ item: CollectionItemDisplayable, _ selected: Bool, _ indexPath: IndexPath, _ collectionView: UICollectionView?) -> (Void)
 
 public protocol CollectionItemDisplayable {
     
     /// The class for the `UICollectionViewCell` subclass for the cell
-    var cellClass: AnyClass? { get }
+    var cellClass: UICollectionViewCell.Type? { get }
     
     /// A prototype identifier for a cell which is defined in a storyboard
     /// file, which this item will use
     var prototypeIdentifier: String? { get }
     
     /// A function which will be called when the item is pressed on in the collection view
-    var selectionHandler: SelectionHandler? { get set }
+    var selectionHandler: SelectionHandler? { get }
     
     /// Whether if no nib was found with the same file name as `cellClass`
     /// (expected behaviour is to name your cell's xib the same file name as the
@@ -34,7 +34,12 @@ public protocol CollectionItemDisplayable {
     /// cell class `TableViewCell` so if you wish to have a none Interface Builder
     /// row, then make sure to return false from this, or subclass from UITableViewCell rather than TableViewCell!
     var useNibSuperclass: Bool { get }
-    
+	
+	/// Whether the cell should remain selected when pressed by the user
+	///
+	/// Defaults to false
+	var remainSelected: Bool { get }
+	
     /// A function which will be called in `cellForRow:atIndexPath` delegate
     /// method which can be used to provide custom overrides on your cell from
     /// the item controlling it
@@ -42,21 +47,34 @@ public protocol CollectionItemDisplayable {
     /// - Parameters:
     ///   - cell: The cell which needs configuring
     ///   - indexPath: The index path which that cell is at
-    ///   - tableViewController: The collection view controller which the cell is in
-    func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController)
+    ///   - collectionViewController: The collection view controller which the cell is in
+    func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in collectionViewController: CollectionViewController)
+	
+	/// A function which allows providing a manual size for a cell not layed
+	/// out using Interface Builder
+	///
+	/// - Parameters:
+	///   - size: The size which the row has available to it
+	///   - tableView: The table view which the row will be displayed in
+	/// - Returns: The height (or nil, to have this ignored) the row should be displayed at
+	func size(constrainedTo size: CGSize, in collectionView: UICollectionView) -> CGSize?
 }
 
 
 extension CollectionItemDisplayable {
     
-    public var cellClass: AnyClass? {
+    public var cellClass: UICollectionViewCell.Type? {
         return nil
     }
     
     public var prototypeIdentifier: String? {
         return nil
     }
-    
+	
+	public var remainSelected: Bool {
+		return false
+	}
+	
     public var selectionHandler: SelectionHandler? {
         get { return nil }
         set {}
@@ -66,9 +84,13 @@ extension CollectionItemDisplayable {
         return true
     }
     
-    public func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in tableViewController: CollectionViewController) {
+    public func configure(cell: UICollectionViewCell, at indexPath: IndexPath, in collectionViewController: CollectionViewController) {
         
     }
+	
+	public func size(constrainedTo size: CGSize, in collectionView: UICollectionView) -> CGSize? {
+		return nil
+	}
 }
 
 
@@ -92,23 +114,23 @@ extension CollectionItemDisplayable {
                 
                 // Sometimes a cell may have subclassed without providing it's own nib file
                 // In this case always use it's superclass!
-                while nibPath == nil, let superClass = cellClass.superclass(){
+                while nibPath == nil, let superClass = cellClass.superclass() as? UICollectionViewCell.Type {
                     
                     // Make sure we're still looking in the correct bundle
                     bundle = Bundle(for: superClass)
                     // Find the new class name
                     classString = String(describing: superClass)
                     // Get the new nib name for the classes superClass
-                    if let superNibName = classString.components(separatedBy: ".").last, let _path = bundle.path(forResource: superNibName, ofType: "nib") {
+                    if let superNibName = classString.components(separatedBy: ".").last, let path = bundle.path(forResource: superNibName, ofType: "nib") {
                         // Update nibPath and nibName
-                        nibPath = _path
+                        nibPath = path
                         nibName = superNibName
                     }
                     cellClass = superClass
                 }
             }
             
-            guard let _ = nibPath else { return nil }
+            guard nibPath != nil else { return nil }
             let nib = UINib(nibName: nibName, bundle: bundle)
             return nib
         }
@@ -124,11 +146,4 @@ extension CollectionItemDisplayable {
         
         return nil
     }
-}
-
-public protocol CollectionSectionDisplayable {
-    
-    var items: [CollectionItemDisplayable] { get set }
-    
-    var selectionHandler: SelectionHandler? { get set }
 }

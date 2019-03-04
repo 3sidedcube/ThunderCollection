@@ -8,6 +8,12 @@
 
 import Foundation
 
+public protocol CollectionSectionDisplayable {
+    
+    var items: [CollectionItemDisplayable] { get }
+    
+    var selectionHandler: SelectionHandler? { get }
+}
 
 open class CollectionSection: CollectionSectionDisplayable {
     
