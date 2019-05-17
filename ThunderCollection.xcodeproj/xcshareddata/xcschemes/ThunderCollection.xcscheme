@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B190A880228E8A1500E44821"
+               BuildableName = "ThunderCollectionTests.xctest"
+               BlueprintName = "ThunderCollectionTests"
+               ReferencedContainer = "container:ThunderCollection.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B124DE201F2F3E1D00A7AD68"
+            BuildableName = "ThunderCollection.framework"
+            BlueprintName = "ThunderCollection"
+            ReferencedContainer = "container:ThunderCollection.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
