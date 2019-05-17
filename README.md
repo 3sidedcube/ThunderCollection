@@ -10,7 +10,7 @@ Thunder Collection comprises of two main types of objects:
 
 ### Items
 
-Collection items are objects that conform to the `CollectionItemDisplayable` protocol, this protocol has properties such as: `cellClass`, `selectionHandler` which are responsible for defining how the cell is configured. As this is a protocol any object can conform to it, which allows you to simply send an array of model objects to the table view to display your content.
+Collection items are objects that conform to the `CollectionItemDisplayable` protocol, this protocol has properties such as: `cellClass`, `selectionHandler` which are responsible for defining how the cell is configured. As this is a protocol any object can conform to it, which allows you to simply send an array of model objects to the collection view to display your content.
 
 ### Sections
 
@@ -22,17 +22,17 @@ Setting up your app to use Thunder Collection is a simple.
 
 + Drag ThunderCollection.xcodeproj into your project
 + Add ThunderCollection.framework to your Embedded Binaries.
-+ Wherever you want to use ThunderTable use `import ThunderCollection`
++ Wherever you want to use ThunderCollection use `import ThunderCollection`
 
 # Code Example
-## A Simple Table View Controller
+## A Simple Collection View Controller
 
-Setting up a collection view is massively simplified using thunder collection, in fact, we can get a simple table view running with just a few lines of code. To create a custom table view we subclass from `CollectionViewController`. We then set up our collection view in the `viewDidLoad:` method. In contrast to [ThunderTable](https://github.com/3sidedcube/iOS-ThunderTable) no default implementations of `CollectionItemDisplayable` are provided, as there is no standard implementation of `UICollectionViewCell` like there is with `UITableViewCell`.
+Setting up a collection view is massively simplified using thunder collection, in fact, we can get a simple collection view running with just a few lines of code. To create a custom collection view we subclass from `CollectionViewController`. We then set up our collection view in the `viewDidLoad:` method. In contrast to [ThunderTable](https://github.com/3sidedcube/iOS-ThunderTable) no default implementations of `CollectionItemDisplayable` are provided, as there is no standard implementation of `UICollectionViewCell` like there is with `UITableViewCell`.
 
 ```swift
-import ThunderTable
+import ThunderCollection
 
-class MyTableViewController: TableViewController {
+class MyCollectionViewController: CollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
