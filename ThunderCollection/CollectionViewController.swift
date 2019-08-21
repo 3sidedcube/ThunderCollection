@@ -86,6 +86,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
             strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
+            strongSelf.accessibilitySettingsDidChange()
         }
         
         // Notification names that it makes sense to redraw on
@@ -106,6 +107,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
                     return
                 }
                 strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
+                strongSelf.accessibilitySettingsDidChange()
             })
         })
     }
@@ -118,6 +120,12 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         accessibilityObservers = []
         guard let dynamicChangeObserver = dynamicChangeObserver else { return }
         NotificationCenter.default.removeObserver(dynamicChangeObserver)
+    }
+    
+    /// A function which does nothing, but provides a hook for `TableViewController`'s automatic
+    /// refresh when accessibility settings change!
+    public func accessibilitySettingsDidChange() {
+        
     }
     
     // MARK: - Helper functions!
