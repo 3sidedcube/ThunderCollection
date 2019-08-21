@@ -85,7 +85,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
-            strongSelf.collectionView.reloadData()
+            let visibleIndexPaths = strongSelf.collectionView.indexPathsForVisibleItems
+            strongSelf.collectionView.reloadItems(at: visibleIndexPaths)
         }
         
         // Notification names that it makes sense to redraw on
@@ -105,7 +106,8 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
                 guard let strongSelf = self, strongSelf.accessibilityRedrawNotificationNames.contains(notification.name) else {
                     return
                 }
-                strongSelf.collectionView.reloadData()
+                let visibleIndexPaths = strongSelf.collectionView.indexPathsForVisibleItems
+                strongSelf.collectionView.reloadItems(at: visibleIndexPaths)
             })
         })
     }
