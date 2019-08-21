@@ -124,7 +124,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     
     /// A function which does nothing, but provides a hook for `TableViewController`'s automatic
     /// refresh when accessibility settings change!
-    public func accessibilitySettingsDidChange() {
+    open func accessibilitySettingsDidChange() {
         
     }
     
