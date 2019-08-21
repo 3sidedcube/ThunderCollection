@@ -85,8 +85,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
-            let visibleIndexPaths = strongSelf.collectionView.indexPathsForVisibleItems
-            strongSelf.collectionView.reloadItems(at: visibleIndexPaths)
+            strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
         }
         
         // Notification names that it makes sense to redraw on
@@ -106,8 +105,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
                 guard let strongSelf = self, strongSelf.accessibilityRedrawNotificationNames.contains(notification.name) else {
                     return
                 }
-                let visibleIndexPaths = strongSelf.collectionView.indexPathsForVisibleItems
-                strongSelf.collectionView.reloadItems(at: visibleIndexPaths)
+                strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
             })
         })
     }
@@ -123,6 +121,17 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     }
     
     // MARK: - Helper functions!
+    
+    private func reloadVisibleRowsWhilstMaintainingSelection() {
+        
+        let visibleIndexPaths = collectionView.indexPathsForVisibleItems
+        
+        let selectedVisibleIndexPaths = collectionView.indexPathsForSelectedItems?.filter({ visibleIndexPaths.contains($0) })
+        collectionView.reloadItems(at: visibleIndexPaths)
+        selectedVisibleIndexPaths?.forEach({ (indexPath) in
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+        })
+    }
     
     open func configure(cell: UICollectionViewCell, with item: CollectionItemDisplayable, at indexPath: IndexPath) {
 		
