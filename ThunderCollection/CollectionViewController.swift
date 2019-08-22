@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+open class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIContentSizeCategoryAdjusting {
     
     private var _data: [CollectionSectionDisplayable] = []
     
@@ -67,8 +67,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     
     private var accessibilityObservers: [Any] = []
     
-    /// Whether the table view should redraw when the devices content size changes
-    public var shouldRedrawWithContentSizeChange = true
+    public var adjustsFontForContentSizeCategory: Bool = true
     
     /// A list of notification names that should cause the table view to redraw itself
     public var accessibilityRedrawNotificationNames: [Notification.Name] = [
@@ -84,7 +83,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         super.viewWillAppear(animated)
         
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
-            guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
+            guard let strongSelf = self, strongSelf.adjustsFontForContentSizeCategory else { return }
             strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
             strongSelf.accessibilitySettingsDidChange()
         }
