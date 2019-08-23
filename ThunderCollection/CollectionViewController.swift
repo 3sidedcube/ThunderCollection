@@ -67,6 +67,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
     
     private var accessibilityObservers: [Any] = []
     
+    /// Indicates whether the collection view should redraw it's visible cells automatically when the device's UIContentSizeCategory is changed.
     public var adjustsFontForContentSizeCategory: Bool = true
     
     /// A list of notification names that should cause the table view to redraw itself
@@ -82,7 +83,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         
         super.viewWillAppear(animated)
         
-        dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
+        dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.adjustsFontForContentSizeCategory else { return }
             strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
             strongSelf.accessibilitySettingsDidChange()
@@ -119,6 +120,7 @@ open class CollectionViewController: UICollectionViewController, UICollectionVie
         accessibilityObservers = []
         guard let dynamicChangeObserver = dynamicChangeObserver else { return }
         NotificationCenter.default.removeObserver(dynamicChangeObserver)
+        self.dynamicChangeObserver = nil
     }
     
     /// A function which does nothing, but provides a hook for `TableViewController`'s automatic
