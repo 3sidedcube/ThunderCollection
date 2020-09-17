@@ -18,16 +18,26 @@ Collection sections are objects that conform to the `CollectionSectionDisplayabl
 
 # Installation
 
-Setting up your app to use Thunder Collection is a simple.
+Setting up your app to use ThunderCollection is a simple and quick process. You can choose between a manual installation, or use Carthage.
 
-+ Drag ThunderCollection.xcodeproj into your project
-+ Add ThunderCollection.framework to your Embedded Binaries.
-+ Wherever you want to use ThunderCollection use `import ThunderCollection`
+## Carthage
+
+- Add `github "3sidedcube/ThunderCollection" == 1.3.0` to your Cartfile.
+- Run `carthage update --platform ios` to fetch the framework.
+- Drag `ThunderCollection` into your project's _Linked Frameworks and Libraries_ section from the `Carthage/Build` folder.
+- Add the Build Phases script step as defined [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+
+## Manual
+
+- Clone as a submodule, or download this repo
+- Import ThunderCollection.xcproject into your project
+- Add ThunderCollection.framework to your Embedded Binaries.
+- Wherever you want to use ThunderCollection use `import ThunderCollection`.
 
 # Code Example
 ## A Simple Collection View Controller
 
-Setting up a collection view is massively simplified using thunder collection, in fact, we can get a simple collection view running with just a few lines of code. To create a custom collection view we subclass from `CollectionViewController`. We then set up our collection view in the `viewDidLoad:` method. In contrast to [ThunderTable](https://github.com/3sidedcube/iOS-ThunderTable) no default implementations of `CollectionItemDisplayable` are provided, as there is no standard implementation of `UICollectionViewCell` like there is with `UITableViewCell`.
+Setting up a collection view is massively simplified using thunder collection, in fact, we can get a simple collection view running with just a few lines of code. To create a custom collection view we subclass from `CollectionViewController`. We then set up our collection view in the `viewDidLoad:` method. In contrast to [ThunderCollection](https://github.com/3sidedcube/iOS-ThunderCollection) no default implementations of `CollectionItemDisplayable` are provided, as there is no standard implementation of `UICollectionViewCell` like there is with `UITableViewCell`.
 
 ```swift
 import ThunderCollection
