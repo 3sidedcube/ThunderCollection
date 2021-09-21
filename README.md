@@ -1,6 +1,6 @@
 # Thunder Collection
 
-[![Build Status](https://travis-ci.org/3sidedcube/ThunderCollection.svg)](https://travis-ci.org/3sidedcube/ThunderCollection) [![Swift 5.3.2](http://img.shields.io/badge/swift-5.3.2-brightgreen.svg)](https://swift.org/blog/swift-5-3-released/) [![Apache 2](https://img.shields.io/badge/license-Apache%202-brightgreen.svg)](LICENSE.md)
+[![Build Status](https://travis-ci.org/3sidedcube/ThunderCollection.svg)](https://travis-ci.org/3sidedcube/ThunderCollection) [![Swift 5.5](http://img.shields.io/badge/swift-5.5-brightgreen.svg)](https://swift.org/blog/swift-5-5-released/) [![Apache 2](https://img.shields.io/badge/license-Apache%202-brightgreen.svg)](LICENSE.md)
 
 Thunder Collection is a useful framework which enables quick and easy creation of collection views in iOS using a declarative approach. It makes the process of creating complex collection views as simple as a few lines of code; and removes the necessity for having long chains of index paths and if statements.
 
@@ -22,9 +22,9 @@ Setting up your app to use ThunderCollection is a simple and quick process. You 
 
 ## Carthage
 
-- Add `github "3sidedcube/ThunderCollection" == 1.3.1` to your Cartfile.
-- Run `carthage update --platform ios` to fetch the framework.
-- Drag `ThunderCollection` into your project's _Linked Frameworks and Libraries_ section from the `Carthage/Build` folder.
+- Add `github "3sidedcube/ThunderCollection" == 2.0.0` to your Cartfile.
+- Run `carthage update --platform ios --use-xcframeworks` to fetch the framework.
+- Drag `ThunderCollection` into your project's _Frameworks and Libraries_ section from the `Carthage/Build` folder (Embed).
 - Add the Build Phases script step as defined [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
 ## Manual
@@ -56,12 +56,6 @@ class MyCollectionViewController: CollectionViewController {
 }
 ```
 
-# Building Binaries for Carthage
-
-Since Xcode 12 there has been issues with building Carthage binaries caused by the inclusion of a secondary arm64 slice in the generated binary needed for Apple Silicon on macOS. This means that rather than simply using `carthage build --archive` you need to use the `./carthage-build build --archive` command which uses the script included with this repo. For more information, see the issue on Carthage's github [here](https://github.com/Carthage/Carthage/issues/3019)
-
-We will be investigating moving over to use SPM as an agency soon, and will also look into migrating to use .xcframeworks as soon as Carthage have support for it.
-	
 # License
 See [LICENSE.md](LICENSE.md)
 
