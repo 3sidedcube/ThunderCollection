@@ -10,9 +10,36 @@
 		B036B7382EAF8EE100E16BEE /* ThunderCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B036B7652EAF978700E16BEE /* Exceptions for "ThunderCollection" folder in "ThunderCollection" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ThunderCollection.h,
+			);
+			target = B036B7372EAF8EE100E16BEE /* ThunderCollection */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		B036B7662EAF978700E16BEE /* Exceptions for "ThunderCollection" folder in "Headers" phase from "ThunderCollection" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				ThunderCollection.h = (Public, );
+			};
+			buildPhase = B036B7332EAF8EE100E16BEE /* Headers */;
+			membershipExceptions = (
+				ThunderCollection.h,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B036B73A2EAF8EE100E16BEE /* ThunderCollection */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B036B7652EAF978700E16BEE /* Exceptions for "ThunderCollection" folder in "ThunderCollection" target */,
+				B036B7662EAF978700E16BEE /* Exceptions for "ThunderCollection" folder in "Headers" phase from "ThunderCollection" target */,
+			);
 			path = ThunderCollection;
 			sourceTree = "<group>";
 		};
