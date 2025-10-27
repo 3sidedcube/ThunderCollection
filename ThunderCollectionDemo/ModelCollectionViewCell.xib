@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ModelCollectionViewCell" customModule="ThunderCollection" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="209"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="260" height="209"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qT3-4D-nmN" customClass="UIImageView">
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="209"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-vk-fMf">
+                                <rect key="frame" x="97" y="8" width="66.5" height="33.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptW-Is-BCd">
+                                <rect key="frame" x="0.0" y="186" width="46.5" height="23"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zIE-vk-fMf" firstAttribute="top" secondItem="qT3-4D-nmN" secondAttribute="top" constant="8" id="Uhx-ik-nyY"/>
+                            <constraint firstItem="ptW-Is-BCd" firstAttribute="leading" secondItem="qT3-4D-nmN" secondAttribute="leading" id="rwk-Fb-gGv"/>
+                            <constraint firstItem="zIE-vk-fMf" firstAttribute="centerX" secondItem="qT3-4D-nmN" secondAttribute="centerX" id="wns-yf-3Jg"/>
+                            <constraint firstAttribute="bottom" secondItem="ptW-Is-BCd" secondAttribute="bottom" id="yMh-sV-zEX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="qT3-4D-nmN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3AF-WH-NRk"/>
+                <constraint firstItem="qT3-4D-nmN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KZd-hX-wBG"/>
+                <constraint firstAttribute="trailing" secondItem="qT3-4D-nmN" secondAttribute="trailing" id="bIn-RJ-V63"/>
+                <constraint firstAttribute="bottom" secondItem="qT3-4D-nmN" secondAttribute="bottom" id="zJ5-cq-fkf"/>
+            </constraints>
+            <size key="customSize" width="260" height="209"/>
+            <connections>
+                <outlet property="ageLabel" destination="ptW-Is-BCd" id="zet-aA-BYk"/>
+                <outlet property="backgroundImageView" destination="qT3-4D-nmN" id="kCA-7L-vVi"/>
+                <outlet property="titleLabel" destination="zIE-vk-fMf" id="CW6-qH-TfZ"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="133.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
