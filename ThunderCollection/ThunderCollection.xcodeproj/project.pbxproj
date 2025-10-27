@@ -8,7 +8,6 @@
 
 /* Begin PBXFileReference section */
 		B036B7382EAF8EE100E16BEE /* ThunderCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B036B7522EAF8F3100E16BEE /* ThunderCollection.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ThunderCollection.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,13 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				B036B7382EAF8EE100E16BEE /* ThunderCollection.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B036B7532EAF8F3100E16BEE /* Products */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,12 +108,6 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B036B7392EAF8EE100E16BEE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B036B7532EAF8F3100E16BEE /* Products */;
-					ProjectRef = B036B7522EAF8F3100E16BEE /* ThunderCollection.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				B036B7372EAF8EE100E16BEE /* ThunderCollection */,
@@ -288,7 +274,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,7 +309,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
