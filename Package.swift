@@ -4,11 +4,12 @@ import PackageDescription
 let package = Package(
     name: "ThunderCollection",
     platforms: [
-        .iOS(.v16)
+        .iOS("18.0")
     ],
     products: [
         .library(
             name: "ThunderCollection",
+            type: .dynamic,
             targets: ["ThunderCollection"]
         )
     ],
